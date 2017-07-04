@@ -1,75 +1,63 @@
 <template id="cell">
-	
-	<div class="cellBack"  >
-		<img id='thum' src="../assets/123.png" alt="../assets/123.png">
-	</div>
 
+	<div class="cellBack"  v-on:click="clickfunction">
+		<img id="thum" src="../assets/123.png" alt="../assets/123.png">
+		<div id="detail">
+			<p id="name">开始</p>
+			<p id="subtitle">结束1231231231233123</p>
+			<p>{{somdata}}</p>
+		</div>
+	</div>
 
 </template>
 
-<script type="text/javascript">
+<script>
+
+export default {
+  props: ['listDat'],
+  data () {
+    return {
+      somdata: this.listDat
+    }
+  },
+  methods: {
+    clickfunction: function () {
+      alert(123)
+    }
+  }
+}
 
 </script>
-
 <style type="text/css">
 	.cellBack{
 		background-color: grey;
 		width: 100%;
-		height: 100px;
+		height: 200px;
 	}
+	/*头像*/
 	#thum{
-		vertical-align: middle;
-		display: block;
-		width: 50px;
-		height: 50px;
-		float: left;
-	}
-</style>
-
-
-<style type="text/css">
-	#list{
-		list-style: none;
-		width: 100%;
-		height: auto;
-		overflow: hidden;
-
-	}
-	.one{
-		width: 100%;
-		height: 2rem;
-		border-bottom: 1px solid #000000;
-
-	}
-	.userImage{
-				width: 1.4rem;
-				height: 1.4rem;
-				display: block;
-				float: left;
-				margin-top: 0.3rem;
-
-	}
-	.detail{
 		position: relative;
+		display: block;
 		float: left;
-		width: 80%;
-		height: 100%;
+		width: 200px;
+		height: 200px;
 	}
-	.name{
-		font-size: .8rem;
-			color: #000000;
-			height: 1rem;
-			text-align: left;
-			margin: 0 0 0 2%;
-			line-height: 1rem;
+	/*右边的详情*/
+	#detail{
+		background-color: red;
 	}
-	.subTitle{
-		font-size: .8rem;
-			color: #000000;
-			height: 1rem;
-			text-align: left;
-			margin: 0 0 0 2%;
-			line-height: 1rem;
+	#name{
+		margin: 0px;
+		padding: 0px;
+		overflow: hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
 	}
-
+	#subtitle{
+		margin: 0px;
+		padding: 0px;
+		overflow: hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+	}
 </style>

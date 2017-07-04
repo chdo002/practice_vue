@@ -1,23 +1,41 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+<template ref="profile">
+  <div id="app" ref="profile">
+    <ul>
+      <li v-for="item in msg">
+        <cell listDat='asdf'></cell>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+import cell from '@/components/cell'
+
+var tempList = [
+  {
+    name: 'heheda',
+    dscr: 'momoda'
+  },
+  {
+    name: 'heheda2',
+    dscr: 'momoda2'
+  }
+]
 export default {
-  name: 'app'
+  name: 'app',
+  _uid: 123,
+  data () {
+    return {
+      msg: tempList
+    }
+  },
+  methods: {
+    subfunc: function (newvalue) {
+      this.msg = newvalue
+    }
+  },
+  components: {
+    cell
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
